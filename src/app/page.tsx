@@ -1,16 +1,19 @@
-import Hero from "@/components/hero";
-import ConnectSupabaseSteps from "@/components/tutorial/connect-supabase-steps";
-import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+"use client";
 
-export default async function Home() {
+import { Container as MapDiv, NaverMap, Marker } from "react-naver-maps";
+
+export default function Home() {
   return (
     <>
-      <Hero />
-      <main className="flex-1 flex flex-col gap-6 px-4">
-        <h2 className="font-medium text-xl mb-4">Next steps</h2>
-        {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-      </main>
+      <MapDiv
+        style={{
+          height: 400,
+        }}
+      >
+        <NaverMap>
+          <Marker defaultPosition={{ lat: 37.5666103, lng: 126.9783882 }} />
+        </NaverMap>
+      </MapDiv>
     </>
   );
 }
