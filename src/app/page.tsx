@@ -1,19 +1,23 @@
 "use client";
 
-import { Container as MapDiv, NaverMap, Marker } from "react-naver-maps";
-
 export default function Home() {
+  window.onload = function () {
+    let map: naver.maps.Map;
+    const center: naver.maps.LatLng = new naver.maps.LatLng(
+      37.3595704,
+      127.105399
+    );
+
+    map = new naver.maps.Map("map", {
+      center: center,
+      zoom: 16,
+    });
+  };
+
   return (
     <>
-      <MapDiv
-        style={{
-          height: 400,
-        }}
-      >
-        <NaverMap>
-          <Marker defaultPosition={{ lat: 37.5666103, lng: 126.9783882 }} />
-        </NaverMap>
-      </MapDiv>
+      <h1>page 메인 페이지</h1>
+      <div id="map" className="w-[500px] h-[500px]"></div>
     </>
   );
 }
