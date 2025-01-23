@@ -1,7 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Home() {
-  window.onload = function () {
+  const [map, setMap] = useState<naver.maps.Map | null>(null);
+
+  useEffect(() => {
     let map: naver.maps.Map;
     const center: naver.maps.LatLng = new naver.maps.LatLng(
       37.3595704,
@@ -12,7 +16,9 @@ export default function Home() {
       center: center,
       zoom: 16,
     });
-  };
+
+    setMap(map);
+  }, []);
 
   return (
     <>
