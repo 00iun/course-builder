@@ -20,7 +20,20 @@ export default function footer() {
       >
         Map
       </button>
-      <button>Profile</button>
+      <button
+        onClick={() => {
+          router.push("/mamo");
+        }}
+      >
+        mamo
+      </button>
+      <button
+        onClick={() => {
+          router.push("/profile");
+        }}
+      >
+        Profile
+      </button>
     </>
   );
 }

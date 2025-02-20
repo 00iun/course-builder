@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import JSONPlaceholder from "@/components/JSONPlaceholder";
 
 export default function Home() {
-  return <>Main page</>;
+  return (
+    <>
+      <div>Main page</div>
+      <JSONPlaceholder />
+    </>
+  );
 }
