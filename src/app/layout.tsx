@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Footer from "@/components/footer";
 import { MyProvider } from "@/components/context/myContext";
+import Link from "next/link";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -29,7 +30,9 @@ export default function RootLayout({
       <html lang="en" className={geistSans.className} suppressHydrationWarning>
         <body className="bg-background text-foreground">
           <header className=" border-b-2 border-black w-screen ">
-            <h1>제목</h1>
+            <h1 className="my-6 text-center">
+              <Link href="/">Course-Builder</Link>
+            </h1>
           </header>
           <main className="flex-grow">{children}</main>
           <footer className="flex w-screen">

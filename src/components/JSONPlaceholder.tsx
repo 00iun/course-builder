@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import axios from "axios";
-
-import UserInfoCase from "@/components/UserInfoCase"
+import UserInfoCard from "./userInfoCard";
 
 export default function JSONPlaceholder() {
   const [data, setData] = useState({});
@@ -56,19 +55,14 @@ export default function JSONPlaceholder() {
       <div className="flex flex-col rounded-[20px] border w-[600px] p-4 mt-4">
         {Object.keys(data).length === 6 ? (
           <>
-            <h1>{data.users.find((item) => item.id === userId).username}</h1>
+          {/* <h1>{data}</h1> */}
+            <UserInfoCard data={data} />
             <nav>
               <Button onClick={() => setSeeUserInfo("post")}>Post</Button>
               <Button onClick={() => setSeeUserInfo("todo")}>Todo</Button>
               <Button onClick={() => setSeeUserInfo("album")}>Album</Button>
               <Button onClick={() => setSeeUserInfo("info")}>Info</Button>
             </nav>
-            <UserInfoCase
-              data={data}
-              userId={userId}
-              seeUserInfo={seeUserInfo}
-              setSeeUserInfo={setSeeUserInfo}
-            />
           </>
         ) : (
           <p>로딩</p>
